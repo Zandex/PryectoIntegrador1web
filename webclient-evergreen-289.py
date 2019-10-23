@@ -13,14 +13,14 @@ def sensorcreator():
 
 @app.route('/registro',methods= ['GET'])
 def listparticipantes():
-    participantes_list=requests.get('http://127.0.0.1:5000/getpeople').json()
+    participantes_list=requests.get('https://api-evergreen-289.azurewebsites.net/getpeople').json()
     return render_template("listregister.html",list=participantes_list)
 
 @app.route('/savepeolple',methods =['POST'])
 def guardarparticipante():
     people = dict(request.values)
     people['estrato']=int(people['estrato'])
-    requests.post('http://127.0.0.1:5000/setpeople',json=people)
+    requests.post('https://api-evergreen-289.azurewebsites.netsetpeople',json=people)
     return sensorcreator()
 
 @app.route('/',methods =['GET'])
