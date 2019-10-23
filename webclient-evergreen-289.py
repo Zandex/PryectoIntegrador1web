@@ -20,7 +20,7 @@ def listparticipantes():
 def guardarparticipante():
     people = dict(request.values)
     people['estrato']=int(people['estrato'])
-    requests.post('https://api-evergreen-289.azurewebsites.netsetpeople',json=people)
+    requests.post('https://api-evergreen-289.azurewebsites.net/setpeople',json=people)
     return sensorcreator()
 
 @app.route('/',methods =['GET'])
